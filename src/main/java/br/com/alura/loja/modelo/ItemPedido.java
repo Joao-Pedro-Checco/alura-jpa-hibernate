@@ -21,11 +21,11 @@ public class ItemPedido {
 
     }
 
-    public ItemPedido(BigDecimal precoUnitario, Integer quantidade, Produto produto) {
-        this.precoUnitario = precoUnitario;
+    public ItemPedido(Integer quantidade, Pedido pedido, Produto produto) {
         this.quantidade = quantidade;
+        this.pedido = pedido;
         this.produto = produto;
-        this.precoUnitario = BigDecimal.valueOf(produto.getPreco());
+        this.precoUnitario = produto.getPreco();
     }
 
     public Long getId() {

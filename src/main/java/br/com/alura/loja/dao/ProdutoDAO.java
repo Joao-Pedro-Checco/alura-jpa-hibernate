@@ -25,7 +25,7 @@ public class ProdutoDAO {
         em.getTransaction().commit();
     }
 
-    private Produto buscarPorId(Long id) {
+    public Produto buscarPorId(Long id) {
         String jpql = "select p from Produto p where p.id = :id";
         return this.em.createQuery(jpql, Produto.class)
                 .setParameter("id", id)

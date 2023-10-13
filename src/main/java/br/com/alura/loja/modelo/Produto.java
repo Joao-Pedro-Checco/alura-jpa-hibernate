@@ -69,8 +69,8 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public double getPreco() {
-        return this.preco.doubleValue();
+    public BigDecimal getPreco() {
+        return this.preco;
     }
 
     public void setPreco(BigDecimal preco) {
