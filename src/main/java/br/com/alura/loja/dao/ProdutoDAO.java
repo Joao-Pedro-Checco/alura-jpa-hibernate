@@ -20,16 +20,19 @@ public class ProdutoDAO {
 
     public void remover(Long id) {
         em.getTransaction().begin();
-        var produto = buscarPorId(id);
+        var produto = this.buscarPorId(id);
         this.em.remove(produto);
         em.getTransaction().commit();
     }
 
     private Produto buscarPorId(Long id) {
-        return this.em.find(Produto.class, id);
+        String jpql = "select p from Produto p where p.id = :id";
+        return this.em.createQuery(jpql, Produto.class)
+                .setParameter("id", id)
+                .getSingleResult();
     }
 
-    public List<Produto> listar() {
+    public List<Produto> listarTodos() {
         String jpql = "select p from Produto p";
         return em.createQuery(jpql, Produto.class).getResultList();
     }

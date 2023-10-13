@@ -20,7 +20,11 @@ public class CadastroDeProduto {
         ProdutoDAO produtoDAO = new ProdutoDAO(em);
         CategoriaDAO categoriaDAO = new CategoriaDAO(em);
 
-        List<Produto> listaProdutos = produtoDAO.listar();
-        listaProdutos.forEach(System.out::println);
+        // List<Produto> listaProdutos = produtoDAO.listar();
+        // listaProdutos.forEach(System.out::println);
+
+        categoriaDAO.cadastrar(celulares);
+        produtoDAO.cadastrar(celular);
+
     }
 }
